@@ -7,24 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv=“Content-Security-Policy” content=“default-src 'self' gap://ready file://* *;
         style-src 'self' 'inseguro-en línea' ; script-src 'self' 'unsafe-inline' 'unsafe-eval' ” />
-    <script src="https://kit.fontawesome.com/b8200729a2.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/b8200729a2.js" defer crossorigin="anonymous"></script>
+
+
+    <title>weather App</title>
 </head>
 
 <body>
 
-    <div class="container">
+    <div class=" container">
         <div class="current-info">
 
             <div class="date-container glass">
-                <div class="time" id="time"><span id="am-pm"></span>
+                <div class="content">
+                    <div>
+                        <div class="time" id="time"><span id="am-pm"></span>
+                        </div>
+                        <div class="place-container">
+                            <div class="time-zone" id="name">Guayaquil</div>
+                            <div id="country" class="country">IN</div>
+                        </div>
+                        <div class="date" id="date">
+                            Monday, 25 May
+                        </div>
+                    </div>
+
+                    <div class="type-weather" id="type-weather">
+
+                    </div>
                 </div>
-                <div class="place-container">
-                    <div class="time-zone" id="name">Guayaquil</div>
-                    <div id="country" class="country">IN</div>
-                </div>
-                <div class="date" id="date">
-                    Monday, 25 May
+
+                <div class="temp" id="temp">
+                    <h2>20&#176;C</h2>
                 </div>
 
                 <div class="others" id="current-weather-items">
