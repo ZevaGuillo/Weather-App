@@ -1,5 +1,7 @@
 import "./styles/main.css";
 import * as apiUltis from "./utils";
+let isFarenheit = false;
+let place = "Guayaquil";
 
 const timeEl = document.getElementById("time");
 const dateEl = document.getElementById("date");
@@ -15,9 +17,21 @@ const cancelBtn = document.querySelector(".cancel-btn");
 const searchBox = document.querySelector(".search-box");
 const searchInput = document.querySelector(".search-box input");
 const iconEl = document.querySelector(".search-btn i");
+const checkboxConvertEl = document.getElementById("checkbox-Convert");
+
 searchBtn.addEventListener("click", searchEvent);
 
 cancelBtn.addEventListener("click", cancelSearchEvent);
+
+checkboxConvertEl.addEventListener("change", () => {
+  if (checkboxConvertEl.checked) {
+    isFarenheit = true;
+    searchCityWeather(place);
+  } else {
+    isFarenheit = false;
+    searchCityWeather(place);
+  }
+});
 
 function searchEvent(e) {
   if (!Array.from(e.target.classList).includes("active")) {
@@ -28,7 +42,8 @@ function searchEvent(e) {
     cancelBtn.classList.add("active");
   }
   if (searchInput.value !== "") {
-    searchCityWeather(searchInput.value);
+    place = searchInput.value;
+    searchCityWeather(place);
   }
 }
 
@@ -99,7 +114,7 @@ function showWeather(weather) {
   name.innerHTML = weather.name;
   countryEl.innerText = `${weather.lat}N  /${weather.lon} E`;
   showTypeWeather(weather);
-  tempEl.innerHTML = `<h2>${temp}&#176;C</h2>`;
+  tempEl.innerHTML = `<h2>${apiUltis.cToFarenheit(temp, isFarenheit)}</h2>`;
   currentWeatherItemsEl.innerHTML = `
   <div class="weather-item">
       <div>Humidity</div>
@@ -131,8 +146,14 @@ function showWeatherForecast(data) {
         <div class="weather-forecast-item weather-today ">
           <div class="day">${window.moment(day.dt * 1000).format("ddd")}</div>
           ${apiUltis.getTypeWeather(day).icon}
-          <div class="temp">Night : ${day.temp.night}&#176;C</div>
-          <div class="temp">Day : ${day.temp.day}&#176;C</div>
+          <div class="temp">Night : ${apiUltis.cToFarenheit(
+            day.temp.night,
+            isFarenheit
+          )}</div>
+          <div class="temp">Day : ${apiUltis.cToFarenheit(
+            day.temp.night,
+            isFarenheit
+          )}</div>
         </div>`;
     } else {
       otherDayForcast += `
@@ -141,8 +162,14 @@ function showWeatherForecast(data) {
                 .moment(day.dt * 1000)
                 .format("dddd")}</div>
                 ${apiUltis.getTypeWeather(day).icon}
-              <div class="temp">Night : ${day.temp.night}&#176;C</div>
-              <div class="temp">Day : ${day.temp.day}&#176;C</div>
+              <div class="temp">Night : ${apiUltis.cToFarenheit(
+                day.temp.night,
+                isFarenheit
+              )}</div>
+              <div class="temp">Day : ${apiUltis.cToFarenheit(
+                day.temp.night,
+                isFarenheit
+              )}</div>
           </div>`;
     }
   });

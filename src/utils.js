@@ -89,4 +89,13 @@ async function getWeather(coord) {
   }
 }
 
-export { getCoord, getWeather, getTypeWeather };
+function cToFarenheit(temp, isFarenheit) {
+  if (isFarenheit) {
+    let farenheit = Math.round(temp * 1.8 + 32);
+    return `${farenheit}&#176;F`;
+  }
+  let celsius = Math.round(temp);
+  return `${celsius}&#176;C`;
+}
+
+export { getCoord, getWeather, getTypeWeather, cToFarenheit };
