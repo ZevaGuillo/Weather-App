@@ -9,6 +9,36 @@ const name = document.getElementById("name");
 const typeWeatherEl = document.getElementById("type-weather");
 const tempEl = document.getElementById("temp");
 const weatherForecastEl = document.getElementById("weather-forecast");
+// search button
+const searchBtn = document.querySelector(".search-btn");
+const cancelBtn = document.querySelector(".cancel-btn");
+const searchBox = document.querySelector(".search-box");
+const searchInput = document.querySelector(".search-box input");
+const iconEl = document.querySelector(".search-btn i");
+searchBtn.addEventListener("click", searchEvent);
+
+cancelBtn.addEventListener("click", cancelSearchEvent);
+
+function searchEvent(e) {
+  if (!Array.from(e.target.classList).includes("active")) {
+    searchBox.classList.add("active");
+    iconEl.classList.add("active");
+    searchInput.classList.add("active");
+    searchBtn.classList.add("active");
+    cancelBtn.classList.add("active");
+  }
+  if (searchInput.value !== "") {
+    searchCityWeather(searchInput.value);
+  }
+}
+
+function cancelSearchEvent(e) {
+  searchBox.classList.remove("active");
+  iconEl.classList.remove("active");
+  searchInput.classList.remove("active");
+  searchBtn.classList.remove("active");
+  cancelBtn.classList.remove("active");
+}
 
 const days = [
   "Sunday",
@@ -54,11 +84,10 @@ setInterval(() => {
   dateEl.innerHTML = days[day] + ", " + date + " " + months[month];
 }, 1000);
 
-async function algo() {
-  let coords = await apiUltis.getCoord("guayaquil");
+async function searchCityWeather(city) {
+  let coords = await apiUltis.getCoord(city);
   let weatherApi = await apiUltis.getWeather(coords);
-  console.log(apiUltis.getTypeWeather(weatherApi));
-  let background = `url(${apiUltis.getTypeWeather(weatherApi).image})`;
+  let background = `url(${apiUltis.getTypeWeather(weatherApi.daily[0]).image})`;
 
   document.getElementsByTagName("body")[0].style.background = background;
   weatherApi.name = coords[2];
@@ -90,19 +119,18 @@ function showWeather(weather) {
 function showTypeWeather(data) {
   typeWeatherEl.innerHTML = ` 
     <h2>${data.current.weather[0].main}</h2>
-    ${apiUltis.getTypeWeather(data).icon}
+    ${apiUltis.getTypeWeather(data.daily[0]).icon}
   `;
 }
 
 function showWeatherForecast(data) {
   let otherDayForcast = "";
-  console.log(apiUltis.getTypeWeather(data).icon);
   data.daily.forEach((day, idx) => {
     if (idx == 0) {
       otherDayForcast += `  
         <div class="weather-forecast-item weather-today ">
           <div class="day">${window.moment(day.dt * 1000).format("ddd")}</div>
-          ${apiUltis.getTypeWeather(data).icon}
+          ${apiUltis.getTypeWeather(day).icon}
           <div class="temp">Night : ${day.temp.night}&#176;C</div>
           <div class="temp">Day : ${day.temp.day}&#176;C</div>
         </div>`;
@@ -112,7 +140,7 @@ function showWeatherForecast(data) {
               <div class="day">${window
                 .moment(day.dt * 1000)
                 .format("dddd")}</div>
-                ${apiUltis.getTypeWeather(data).icon}
+                ${apiUltis.getTypeWeather(day).icon}
               <div class="temp">Night : ${day.temp.night}&#176;C</div>
               <div class="temp">Day : ${day.temp.day}&#176;C</div>
           </div>`;
@@ -122,4 +150,4 @@ function showWeatherForecast(data) {
   weatherForecastEl.innerHTML = otherDayForcast;
 }
 
-algo();
+searchCityWeather("Guayaquil");

@@ -56,8 +56,8 @@ const typeWeather = {
   },
 };
 
-function getTypeWeather(weather) {
-  let id = weather.daily[0].weather[0].icon.slice(0, -1);
+function getTypeWeather(daily) {
+  let id = daily.weather[0].icon.slice(0, -1);
   return typeWeather[id];
 }
 
