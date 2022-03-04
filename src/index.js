@@ -24,6 +24,11 @@ searchBtn.addEventListener("click", searchEvent);
 cancelBtn.addEventListener("click", cancelSearchEvent);
 
 checkboxConvertEl.addEventListener("change", () => {
+  let letter = window.getComputedStyle(
+    document.querySelector(".slider", "::before")
+  );
+  console.log(letter);
+
   if (checkboxConvertEl.checked) {
     isFarenheit = true;
     searchCityWeather(place);
@@ -144,7 +149,7 @@ function showWeatherForecast(data) {
     if (idx == 0) {
       otherDayForcast += `  
         <div class="weather-forecast-item weather-today ">
-          <div class="day">${window.moment(day.dt * 1000).format("ddd")}</div>
+          <div class="day">Today</div>
           ${apiUltis.getTypeWeather(day).icon}
           <div class="temp">Night : ${apiUltis.cToFarenheit(
             day.temp.night,
