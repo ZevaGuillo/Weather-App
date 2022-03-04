@@ -1,5 +1,6 @@
 import "./styles/main.css";
 import * as apiUltis from "./utils";
+var moment = require("moment");
 let isFarenheit = false;
 let place = "Guayaquil";
 
@@ -163,9 +164,7 @@ function showWeatherForecast(data) {
     } else {
       otherDayForcast += `
           <div class="weather-forecast-item">
-              <div class="day">${window
-                .moment(day.dt * 1000)
-                .format("dddd")}</div>
+              <div class="day">${moment(day.dt * 1000).format("dddd")}</div>
                 ${apiUltis.getTypeWeather(day).icon}
               <div class="temp">Night : ${apiUltis.cToFarenheit(
                 day.temp.night,

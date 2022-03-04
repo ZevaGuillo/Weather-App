@@ -70,6 +70,7 @@ async function getCoord(cityName) {
     let lat = json.coord.lat;
     let lon = json.coord.lon;
     let name = json.name;
+
     return [lat, lon, name];
   } catch (err) {
     alert(err);
