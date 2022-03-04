@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv=“Content-Security-Policy” content=“default-src 'self' gap://ready file://* *;
+        style-src 'self' 'inseguro-en línea' ; script-src 'self' 'unsafe-inline' 'unsafe-eval' ” />
+    <script src="https://kit.fontawesome.com/b8200729a2.js" defer crossorigin="anonymous"></script>
+
+
+    <title>weather App</title>
+<link href="main.css" rel="stylesheet"></head>
+
+<body>
+
+    <div class=" container">
+        <div class="current-info">
+
+            <div class="date-container glass">
+                <div class="content">
+                    <div>
+                        <div class="time" id="time"><span id="am-pm"></span>
+                        </div>
+                        <div class="place-container">
+                            <div class="time-zone" id="name">Guayaquil</div>
+                            <div id="country" class="country">IN</div>
+                        </div>
+                        <div class="date" id="date">
+                            Monday, 25 May
+                        </div>
+                    </div>
+
+                    <div class="type-weather" id="type-weather">
+
+                    </div>
+                </div>
+
+                <div class="temp" id="temp">
+                    <h2>20&#176;C</h2>
+                </div>
+
+                <div class="others" id="current-weather-items">
+
+                </div>
+            </div>
+
+            <div class="config">
+                <div class="search-box">
+                    <input type="text" placeholder="Type to search...">
+                    <div class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="cancel-btn">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="convert-box">
+                    <label class="switch" for="checkbox-Convert">
+                        <input type="checkbox" id="checkbox-Convert" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="future-forecast glass">
+        <div class="weather-forecast" id="weather-forecast"></div>
+    </div>
+
+    <footer>
+        <p>Copyright © 2022</p>
+        <a href="https://github.com/ZevaGuillo">
+            ZevaGuillo
+            <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+    </footer>
+
+<script defer src="main.js"></script></body>
+
+</html>

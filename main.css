@@ -1,0 +1,421 @@
+/*!***********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/main.css ***!
+  \***********************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap);
+/*!***************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/main.css (1) ***!
+  \***************************************************************************/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --first-color: #6e30f2;
+  --second-color: #4b50bf;
+  --text-color: #ebedf2;
+  --dark-Color: #231773;
+  --light-color: #acb0f2;
+}
+
+body {
+  background: url("https://cdna.artstation.com/p/assets/images/images/036/148/946/large/philipp-a-urlich-clouds-3.jpg?1616856756");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  padding: 20px 70px;
+  color: #ebedf2;
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.current-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.date-container {
+  padding: 20px;
+  min-width: 20rem;
+  font-weight: 300;
+}
+.date-container .time {
+  font-size: 70px;
+}
+
+.date-container #am-pm {
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+.date-container .date {
+  font-size: 30px;
+}
+
+.place-container .time-zone {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.place-container .country {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.current-info .others {
+  display: flex;
+  flex-direction: column;
+  background: rgba(24, 24, 27, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.current-info .others .weather-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.future-forecast {
+  padding: 20px 70px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  color: var(--text-color);
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+  border-radius: 20px 20px 0 0;
+  border-width: 1px 0 0 0;
+}
+
+.future-forecast::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.5rem;
+}
+
+.future-forecast::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.future-forecast::-webkit-scrollbar-thumb {
+  background: var(--first-color);
+  border-radius: 50px;
+}
+
+.future-forecast .weather-forecast {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+
+.weather-forecast .weather-forecast-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+.weather-forecast-item:hover {
+  transform: scale(1.1);
+}
+
+.weather-forecast .weather-today {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.weather-forecast .weather-forecast-item .day {
+  padding: 5px 15px;
+  margin-bottom: 5px;
+  background: var(--first-color);
+  border-radius: 50px;
+  text-align: center;
+}
+
+.weather-forecast .weather-forecast-item .temp {
+  font-weight: 100;
+  font-size: 12px;
+}
+
+.config {
+  position: relative;
+}
+
+.search-box {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.search-box.active {
+  width: 350px;
+}
+.search-box input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: var(--dark-Color);
+  background: var(--text-color);
+  font-size: 18px;
+  border-radius: 50px;
+  padding: 0 60px 0 20px;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.search-box input.active {
+  opacity: 1;
+}
+.search-box .search-btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+  height: 50px;
+  width: 50px;
+  color: var(--first-color);
+  background: var(--text-color);
+  line-height: 50px;
+  font-size: 22px;
+  text-align: center;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box .search-btn.active {
+  right: 5px;
+  height: 40px;
+  width: 40px;
+  color: var(--text-color);
+  background: var(--first-color);
+  line-height: 40px;
+  font-size: 15px;
+  transform: translateY(-50%) rotate(360deg);
+}
+.search-box .cancel-btn {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  font-size: 25px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.search-box .cancel-btn.active {
+  right: -40px;
+  transform: translateY(-50%) rotate(360deg);
+}
+
+.convert-box {
+  position: absolute;
+  top: 80px;
+  right: 0;
+}
+
+.switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  background-color: var(--first-color);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: var(--text-color);
+  bottom: 4px;
+  content: "°C";
+  font-weight: 400;
+  text-align: center;
+  color: var(--dark-Color);
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  content: "°F";
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+footer {
+  position: absolute;
+  padding: 0.5rem;
+  bottom: 0;
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+footer a {
+  color: initial;
+  text-decoration: none;
+}
+
+.weather-forecast-item .fas {
+  font-size: 3rem;
+}
+
+.type-weather .fas {
+  font-size: 5rem;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
+.type-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    padding: 10px;
+  }
+
+  .content {
+    padding: 0px;
+    gap: 0.5rem;
+  }
+
+  .config {
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-box {
+    width: 350px;
+  }
+
+  .search-box input {
+    opacity: 1;
+  }
+  .search-box .search-btn.active {
+    height: 50px;
+    width: 50px;
+    color: var(--first-color);
+    background: var(--text-color);
+    line-height: 50px;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 50px;
+  }
+
+  .search-box .cancel-btn.active {
+    display: none;
+  }
+
+  .future-forecast {
+    justify-content: start;
+    align-items: none;
+  }
+
+  .date-container {
+    width: 50%;
+    align-self: center;
+  }
+
+  .date-container .time {
+    font-size: 50px;
+  }
+
+  .date-container #am-pm {
+    font-size: 20px;
+  }
+
+  .date-container .date {
+    font-size: 20px;
+  }
+
+  .place-container .time-zone {
+    font-size: 20px;
+  }
+
+  input {
+    width: 70%;
+  }
+
+  .current-info {
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .current-info .others {
+    padding: 10px;
+  }
+
+  .current-info .others .weather-item {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .future-forecast {
+    justify-content: start;
+    align-items: none;
+    overflow-x: scroll;
+  }
+}
+
