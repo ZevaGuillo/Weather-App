@@ -409,6 +409,19 @@ footer a {
   .current-info .others .weather-item {
     font-size: 14px;
   }
+  body {
+    overflow: scroll;
+  }
+
+  .future-forecast {
+    position: inherit;
+  }
+  .future-forecast .weather-forecast {
+    flex-direction: column;
+  }
+  footer {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 1400px) {
