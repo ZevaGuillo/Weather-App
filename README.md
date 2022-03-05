@@ -6,4 +6,4 @@ Weather app created with HTML, CSS and JS. Using the API of [Open Weathe](https:
 
 ## Preview
 
-![alt-text]();
+![alt-text](https://github.com/ZevaGuillo/Weather-App/blob/main/Preview.png?raw=true);
