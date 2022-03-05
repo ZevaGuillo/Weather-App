@@ -28,7 +28,6 @@ checkboxConvertEl.addEventListener("change", () => {
   let letter = window.getComputedStyle(
     document.querySelector(".slider", "::before")
   );
-  console.log(letter);
 
   if (checkboxConvertEl.checked) {
     isFarenheit = true;

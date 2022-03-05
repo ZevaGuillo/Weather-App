@@ -79,7 +79,6 @@ async function getCoord(cityName) {
 
 async function getWeather(coord) {
   try {
-    console.log(coord);
     let response = await fetch(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${coord[0]}&lon=${coord[1]}&exclude=hourly,minutely&units=metric&appid=${APYkey}`
     );
